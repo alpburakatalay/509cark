@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasemin Kalender'in Harika Sınıfı</title>
+    <link id="themeLink" rel="stylesheet" href="css/style1.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="theme-selector">
+        <label for="themeSelect">Tema:</label>
+        <select id="themeSelect">
+            <option value="1">Varsayılan</option>
+            <option value="2">Terminal</option>
+            <option value="3">Dark Modern</option>
+            <option value="4">Neon Cyberpunk</option>
+            <option value="5">Minimalist</option>
+            <option value="6">Tropik</option>
+            <option value="7">Sakura</option>
+            <option value="8">Okyanus</option>
+            <option value="9">Gün Batımı</option>
+            <option value="10">Orman</option>
+            <option value="11">Şeker</option>
+            <option value="12">Galaksi</option>
+        </select>
+    </div>
+
+    <div class="wrapper">
+        <div class="container">
+            <h1>Yasemin Kalender'in Harika Sınıfı</h1>
+
+            <div id="result-container">
+                <p id="student-name">Döndürmek İçin Tıkla!</p>
+                <div class="selected-student-info" id="selectedStudentInfo" style="display:none;">
+                    <div class="selected-student-photo" id="selectedStudentPhoto"></div>
+                    <div class="selected-student-desc" id="selectedStudentDesc"></div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button id="selectButton">Çarkı Döndür</button>
+                <button id="manageStudentsBtn" class="manage-students-btn">Öğrenciler</button>
+            </div>
+
+            <div class="controls-row">
+                <div class="timer-section">
+                    <h3>⏱ Süre</h3>
+                    <div class="timer-display" id="timerDisplay">00:00</div>
+                    <div class="timer-controls">
+                        <input type="number" id="timerMinutes" class="timer-input" placeholder="dk" min="0" max="60" value="5">
+                        <input type="number" id="timerSeconds" class="timer-input" placeholder="sn" min="0" max="59" value="0">
+                        <button id="startTimerBtn">Başlat</button>
+                        <button id="pauseTimerBtn">Duraklat</button>
+                        <button id="stopTimerBtn">Sıfırla</button>
+                    </div>
+                </div>
+
+                <div class="group-controls">
+                    <div class="group-row">
+                        <label>Grup:</label>
+                        <select id="groupSize">
+                            <option value="2">2 Kişi</option>
+                            <option value="3">3 Kişi</option>
+                            <option value="4">4 Kişi</option>
+                            <option value="5">5 Kişi</option>
+                            <option value="6">6 Kişi</option>
+                            <option value="7">7 Kişi</option>
+                            <option value="8">8 Kişi</option>
+                        </select>
+                        <button id="createGroupsBtn">Grupla</button>
+                    </div>
+                    <button id="resetBtn" class="reset-btn">Verileri Sıfırla</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <h2>Seçilenler</h2>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+
+    <!-- Student Modal -->
+    <div id="studentPhotoModal" class="student-photo-modal">
+        <div class="photo-modal-content">
+            <h2>Öğrenciler</h2>
+            <div id="studentsList" class="student-photo-grid"></div>
+            <div class="modal-buttons">
+                <button class="btn-close" onclick="document.getElementById('studentPhotoModal').style.display='none'">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Group Modal -->
+    <div id="groupModal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h2>Gruplar</h2>
+            <p id="info-note" class="info-note"></p>
+            <div id="groupsContainer" class="groups-wrapper"></div>
+            <button onclick="document.getElementById('groupModal').style.display='none'" class="close-modal-btn">Kapat</button>
+        </div>
+    </div>
+
+    <audio id="mainSound" src="audio1.mp3" preload="auto"></audio>
+    <audio id="bellSound" src="audio2.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
